@@ -22,6 +22,7 @@ class RestaurantRepositoryTest extends BaseRepositoryTest {
 
     private static final double LATITUDE = 132.1;
     private static final double LONGITUDE = 123.1;
+    private static final String MAIN_IMAGE = "https://example.com/restaurant.jpg";
 
     @Autowired
     private RestaurantRepository restaurantRepository;
@@ -37,19 +38,19 @@ class RestaurantRepositoryTest extends BaseRepositoryTest {
 
     @Test
     void findRestaurantsOrderedByVibeRatio() {
-        Restaurant restaurant1 = new Restaurant("restaurant1", "address1", LATITUDE, LONGITUDE);
+        Restaurant restaurant1 = new Restaurant("restaurant1", "address1", LATITUDE, LONGITUDE, MAIN_IMAGE);
         Restaurant savedRestaurant1 = restaurantRepository.save(restaurant1);
         createCrawlingReviews(savedRestaurant1, CLASSIC, CLASSIC, CLASSIC, CLEAN, LIVELY);
 
-        Restaurant restaurant2 = new Restaurant("restaurant2", "address2", LATITUDE, LONGITUDE);
+        Restaurant restaurant2 = new Restaurant("restaurant2", "address2", LATITUDE, LONGITUDE, MAIN_IMAGE);
         Restaurant savedRestaurant2 = restaurantRepository.save(restaurant2);
         createCrawlingReviews(savedRestaurant2, CLASSIC, CLASSIC, LIVELY, MODERN);
 
-        Restaurant restaurant3 = new Restaurant("restaurant3", "address3", LATITUDE, LONGITUDE);
+        Restaurant restaurant3 = new Restaurant("restaurant3", "address3", LATITUDE, LONGITUDE, MAIN_IMAGE);
         Restaurant savedRestaurant3 = restaurantRepository.save(restaurant3);
         createCrawlingReviews(savedRestaurant3, CLASSIC, CLASSIC, LIVELY);
 
-        Restaurant restaurant4 = new Restaurant("restaurant4", "address4", LATITUDE, LONGITUDE);
+        Restaurant restaurant4 = new Restaurant("restaurant4", "address4", LATITUDE, LONGITUDE, MAIN_IMAGE);
         Restaurant savedRestaurant4 = restaurantRepository.save(restaurant4);
         createCrawlingReviews(savedRestaurant4, LIVELY, LIVELY, LIVELY);
 
